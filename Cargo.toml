@@ -1,0 +1,10 @@
+[package]
+name = "wrapstream"
+version = "0.1.0"
+edition = "2021"
+authors = ["lbbrown7"]
+license = "MIT"
+description = "Greedy text wrapping that works on streams, not just strings already in memory"
+readme = "README.md"
+
+[dependencies]
