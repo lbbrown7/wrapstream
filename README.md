@@ -45,8 +45,13 @@ else that implements `Read` - it never buffers more than the current line.
 - Wraps greedily on whitespace, breaking a line as soon as the next word
   would push it past `width` characters.
 - Width is measured in `char` count, not display width or bytes.
-- All whitespace runs (including blank lines) collapse to a single break;
-  paragraph structure in the input is not currently preserved.
+- A single newline is treated as ordinary whitespace and collapsed like any
+  other run of spaces or tabs. A blank line (two or more consecutive
+  newlines) is preserved instead: it ends the current paragraph and shows
+  up in the output as an empty line, so paragraphs never bleed into each
+  other. A run of several blank lines collapses to one empty output line,
+  and a blank run at the very start or end of the input produces no empty
+  line at all.
 - A word longer than `width` is emitted on its own line rather than split.
 
 ## License
